@@ -37,8 +37,7 @@ really-ui项目于20150420正式迁移到Github，并继续开发中
 	      * @param args  
 	   */  
 	   public static void main(String[] args) {  
-	   System.out.println("HelloWorld!");  
-	  
+	   		System.out.println("HelloWorld!");  
 	   }
 	   
     }  
