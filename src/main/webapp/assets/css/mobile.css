@@ -1,0 +1,33 @@
+
+#zx-carousel {
+  align: center;
+  margin-bottom: 10px;
+}
+
+.carousel {
+  align: center;
+}
+
+.list-item {
+  margin: 10px;
+  border-bottom: 1px solid #f0f9ff;
+}
+
+.list-img {
+  padding: 0px 0px 10px 0px;
+}
+
+.list-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px 0px 10px 10px;
+  color: #4F4F4F;
+  padding-bottom: 10px;
+}
+
+.list-sub {
+  font-size: 10px;
+  padding: 0px 0px 10px 10px;
+  color: #767676;
+  padding-bottom: 10px;
+}
