@@ -1,13 +1,11 @@
 真相项目- 微信版
 ===================================  
-really-ui项目于20150420正式迁移到Github，并继续开发中
+really-ui项目于20150420正式迁移到Github，并继续开发中，本项目主要运营在移动端，不过也不影响在PC端的使用。
 
-更新记录
+项目说明
 -----------------------------------
 <ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
+<li>真相日报，获取最新行业资讯</li>
 </ul>
 
     
@@ -42,12 +40,12 @@ really-ui项目于20150420正式迁移到Github，并继续开发中
 	   }
 	   
     }  
-### 链接  
-1.查看[<新成视野>www.wuxincheng.com.cn](http://www.wuxincheng.com.cn)<br />  
-2.[点击这里我你可以链接到我的博客](http://guoyunsky.iteye.com)<br />  
-  
+### 友情链接  
+1.查看[ 新成视野 www.wuxincheng.com.cn](http://www.wuxincheng.com.cn)<br />  
+2.[点击这里我你可以链接到我的网站](http://www.wuxincheng.com.cn)<br />  
+
 ###只是显示图片  
-![github](http://github.com/unicorn.png "github")  
+![github](http://github.com/unicorn.png "github")
   
 ###想点击某个图片进入一个网页,比如我想点击github的icorn然后再进入www.github.com  
 [![image]](http://www.github.com/)  
