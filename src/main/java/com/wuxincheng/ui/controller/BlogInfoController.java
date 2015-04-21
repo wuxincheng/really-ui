@@ -9,13 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 博客管理
- * 
- * @author wuxincheng
- *
+ * 博客管理(在本项目系统中暂时使用不到)
  */
 @Controller
 @RequestMapping("/manage/blogInfo")
+@Deprecated
 public class BlogInfoController extends BaseController {
 
 	private static Logger logger = LoggerFactory.getLogger(BlogInfoController.class);
@@ -25,17 +23,10 @@ public class BlogInfoController extends BaseController {
 	//@Autowired private BlogInfoService blogInfoService;
 	//@Autowired private WeChatService typeService;
 	
-	/**
-	 * 显示列表
-	 * 
-	 * @return
-	 */
 	@RequestMapping(value = "/list")
 	public String list(HttpServletRequest request, String currentPage, Model model) {
 		logger.info("显示博客列表页面");
 		setMenuFlag(request, "blogInfo");
-		
-		
 		return "info/list";
 	}
 	

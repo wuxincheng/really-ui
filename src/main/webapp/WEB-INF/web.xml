@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   version="2.5">
   <display-name>really-ui</display-name>
-  <description>真象说后台管理</description>
+  <description>真象日报 - 基金行业最新资讯</description>
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:springContext.xml</param-value>

@@ -7,7 +7,7 @@
   <artifactId>really-ui</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
-  <name>really-manage Maven Webapp</name>
+  <name>really-ui Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
   <properties>

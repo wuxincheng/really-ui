@@ -19,6 +19,9 @@ import com.wuxincheng.ui.service.NewsService;
 import com.wuxincheng.ui.util.DateUtil;
 import com.wuxincheng.ui.util.Validation;
 
+/**
+ * 首页管理(文章列表页面)
+ */
 @Controller
 @RequestMapping("/index")
 public class IndexController {
@@ -28,6 +31,7 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 	/** 每页显示条数 */
 	private final Integer pageSize = 30;
 	
+	/** 当前页面 */
 	private String currentPage;
 	
 	@Autowired private NewsService newsService;
@@ -108,7 +112,7 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 	@RequestMapping(value = "/more")
 	@ResponseBody
 	public Map<String, Object> more(String currentPage) {
-		logger.info("加载更多");
+		logger.info("点击加载更多：" + currentPage);
 		
 		if (Validation.isBlank(currentPage) || !Validation.isInt(currentPage, "0+")) {
 			currentPage = "1";
