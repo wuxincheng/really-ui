@@ -20,7 +20,7 @@ import com.wuxincheng.ui.util.DateUtil;
 import com.wuxincheng.ui.util.Validation;
 
 /**
- * 首页管理(文章列表页面)
+ * 真相日报 - 首页管理(文章列表页面)
  */
 @Controller
 @RequestMapping("/index")
