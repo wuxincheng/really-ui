@@ -40,7 +40,7 @@
             </div>
           </div>
           <div class="slide-content">
-            <span style="color: #000000; font-size: 14px;"><a href="${obj.url}" target="_blank">${obj.title}</a></span>
+            <span style="color: #000000; font-size: 14px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}</strong></a></span>
             <p style="color: #837E7E; margin-top: 5px;">${obj.subTitle}</p>
           </div>
           <div class="slide-footer">
