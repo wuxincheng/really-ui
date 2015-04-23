@@ -77,10 +77,10 @@
     	LEFT JOIN T_REALLY_COMMENT c ON n.PK = c.NEWS_ID
     <dynamic prepend="WHERE">
       <isNotNull prepend="AND" property="start">
-        n.STATE = '0' OR n.STATE = '1' OR n.STATE IS NULL
+        n.STATE = '1'
       </isNotNull>
       <isNotNull prepend="AND" property="queryStartDate">
-        DATE_FORMAT(n.CREATE_TIME,'%Y-%m-%d') BETWEEN #queryStartDate# AND #queryEndDate#
+        DATE_FORMAT(n.CREATE_TIME,'%Y%m%d') BETWEEN #queryStartDate# AND #queryEndDate#
       </isNotNull>
     </dynamic>
     ORDER BY n.STATE DESC, n.CREATE_TIME DESC LIMIT #start#, #end#
@@ -90,10 +90,10 @@
     SELECT COUNT(*) AS queryCount FROM T_REALLY_NEWS n
     <dynamic prepend="WHERE">
       <isNotNull prepend="AND" property="start">
-        n.STATE = '0' OR n.STATE = '1' OR n.STATE IS NULL
+        n.STATE = '1'
       </isNotNull>
       <isNotNull prepend="AND" property="queryStartDate">
-        DATE_FORMAT(n.CREATE_TIME,'%Y-%m-%d') BETWEEN #queryStartDate# AND #queryEndDate#
+        DATE_FORMAT(n.CREATE_TIME,'%Y%m%d') BETWEEN #queryStartDate# AND #queryEndDate#
       </isNotNull>
     </dynamic>
   </select>

@@ -29,6 +29,8 @@
   <div style="margin: 0px 0px 15px 0px; border-top: 2px solid #603811;"></div>
    
   <div class="container" id="news-container">
+    <c:choose>
+    <c:when test="${not empty pager.news}">
     <c:forEach items="${pager.news}" var="obj" varStatus="s">
       <div class="row carousel-row" id="row${s.index+1}">
         <div class="col-xs-12 col-xs-offset-0 slide-row">
@@ -54,6 +56,14 @@
         </div>
       </div>
     </c:forEach>
+    </c:when>
+    <c:otherwise>
+      <div class="alert alert-warning" role="alert">
+      	<a href="<%=request.getContextPath()%>/coffee/history/index" target="_blank">当天已全部阅读，点击查看历史</a>
+      </div>
+    </c:otherwise>
+    </c:choose>
+    
   </div>
   
   <div id="loading" style="text-align: center; width: 100%;"></div>
@@ -115,7 +125,8 @@ function loadMore () {
 		if (data.lastPage <= (data.currentPage)) {
 			$(".really-container").css("display", "block");
     		$(".really-container").empty();
-    		$(".really-container").html("<div class='alert alert-warning' role='alert'>当天已全部阅读，点击查看历史</div>");
+    		$(".really-container").html("<div class='alert alert-warning' role='alert'>"+
+    				"<a href='<%=request.getContextPath()%>/coffee/history/index' target='_blank'>当天已全部阅读，点击查看历史</a></div>");
 		} else {
 			$(".really-container").css("display", "block");
 		}

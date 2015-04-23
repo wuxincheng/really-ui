@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>真象日报 - 基金行业最新资讯</title>
+<title>咖啡日报 - 基金行业最新资讯</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
@@ -16,17 +16,7 @@
 </head>
 
 <body>
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container" style="text-align: center;">
-      <div class="navbar-header" style="padding: 10px 0px 0px 0px;">
-        <span style="color: #FFFFFF; font-size: 20px; padding: 15px 0;">真象日报</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 
-  <div style="margin: 50px;"></div>
-   -->
+  <div style="margin: 0px 0px 15px 0px; border-top: 2px solid #603811;"></div>
    
   <div class="container" id="news-container">
     <c:forEach items="${pager.news}" var="obj" varStatus="s">

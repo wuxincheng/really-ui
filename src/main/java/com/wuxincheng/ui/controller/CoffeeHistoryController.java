@@ -29,7 +29,7 @@ public class CoffeeHistoryController {
 private static Logger logger = LoggerFactory.getLogger(CoffeeHistoryController.class);
 	
 	/** 每页显示条数 */
-	private final Integer pageSize = 20;
+	private final Integer pageSize = 1000;
 	
 	/** 当前页面 */
 	private String currentPage;

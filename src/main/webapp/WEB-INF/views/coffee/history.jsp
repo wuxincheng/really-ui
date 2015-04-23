@@ -16,17 +16,7 @@
 </head>
 
 <body>
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container" style="text-align: center;">
-      <div class="navbar-header" style="padding: 10px 0px 0px 0px;">
-        <span style="color: #FFFFFF; font-size: 20px; padding: 15px 0;">咖啡日报</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 
-  <div style="margin: 50px;"></div>
-   -->
+  <div style="margin: 0px 0px 15px 0px; border-top: 2px solid #603811;"></div>
    
   <div class="container" id="news-container">
     <c:forEach items="${pager.news}" var="obj" varStatus="s">
@@ -60,7 +50,37 @@
   
   <div id="load_more_div" class="container" style="text-align: center;">
     <div class="really-container">
-      <button id="moretag" class="btn btn-block btn-lg btn-warning" onclick="loadMore()" type="button">当天日报已全部阅读，点击查看历史日报</button>
+       <ul class="pager">
+        <li
+          <c:if test="${'1' eq pager.currentPage}">class="disabled"</c:if>>
+          <a
+          <c:if test="${pager.currentPage > 1}">href="<%=request.getContextPath()%>/manage/news/list?currentPage=1"</c:if>>首页</a>
+        </li>
+
+        <li
+          <c:if test="${'1' eq pager.currentPage}">class="disabled"</c:if>>
+          <a
+          <c:if test="${pager.currentPage > 1}">href="<%=request.getContextPath()%>/manage/news/list?currentPage=${pager.currentPage-1}"</c:if>>上一页</a>
+        </li>
+
+        <li
+          <c:if test="${pager.lastPage eq pager.currentPage}">class="disabled"</c:if>>
+          <a
+          <c:if test="${pager.currentPage < pager.lastPage}">href="<%=request.getContextPath()%>/manage/news/list?currentPage=${pager.currentPage+1}"</c:if>>下一页</a>
+        </li>
+
+        <li
+          <c:if test="${pager.lastPage eq pager.currentPage}">class="disabled"</c:if>>
+          <a
+          <c:if test="${pager.currentPage < pager.lastPage}">href="<%=request.getContextPath()%>/manage/news/list?currentPage=${pager.lastPage}"</c:if>>尾页</a>
+        </li>
+
+        <li class="">&nbsp;</li>
+        <li class=""><strong>${pager.currentPage}/${pager.lastPage}</strong></li>
+        <li class="">&nbsp;</li>
+        <li class="disabled">共<strong>${pager.totalCount}</strong>条
+        </li>
+      </ul>
     </div>
   </div>
   <input type="hidden" id="nowCurrentPage" name="nowCurrentPage" value="2" />
@@ -68,63 +88,5 @@
 
 <script src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/js/bootstrap.js"></script>
-
-<script type="text/javascript">
-function loadMore () {
-  var html = "<div class='row carousel-row'><div class='col-xs-12 col-xs-offset-0 slide-row'>"
-  	+ "<div id='carousel-1' class='carousel slide slide-carousel' data-ride='carousel'>"
-  	+ "<div class='carousel-inner'><div class='item active'><a href='url' target='_blank'>"
-  	+ "<img src='imgLink'></a></div></div></div><div class='slide-content'>"
-  	+ "<span style='color: #000000; font-size: 14px;'><a href='url' target='_blank'>title</a></span>"
-  	+ "<p style='color: #837E7E; margin-top: 5px;'>subTitle</p></div><div class='slide-footer'>"
-  	+ "<span class='pull-left'><span>来源：domain</span></span><span class='pull-right'>"
-  	+ "<i class='fa fa-fw fa-eye'></i> truthDegree"
-  	+ "</span></div></div></div>";
-  	
-  var url = "<%=request.getContextPath()%>/index/more";
-  
-  var nowCurrentPage = $("#nowCurrentPage").val();
-  
-  $.ajax({
-  	url : url, // 跳转到 action    
-  	data : {currentPage : nowCurrentPage},
-  	type : 'post',
-  	beforeSend:function(){
-  		$("#loading").html("<img style='margin: 5px 0px 10px 0px;' src='<%=request.getContextPath()%>/assets/images/loading_line.gif' />");
-  		$(".really-container").css("display", "none");
-  	},
-  	cache : false,
-  	dataType : 'json',
-  	success : function(data) {
-  		$("#loading").empty();
-  		
-  		$("#nowCurrentPage").val(data.currentPage + 1);
-		
-		var objs = data.news;
-		$.each(objs, function(i, obj){
-			var show = html.replace("imgLink", obj.imgLink)
-						   .replace("title", obj.title)
-						   .replace("subTitle", obj.subTitle)
-						   .replace("url", obj.url)
-						   .replace("url", obj.url)
-						   .replace("domain", obj.domain)
-						   .replace("truthDegree", obj.truthDegree);
-			$("#news-container").append(show);
-		});
-		
-		if (data.lastPage <= (data.currentPage)) {
-			$(".really-container").css("display", "block");
-    		$(".really-container").empty();
-    		$(".really-container").html("<div class='alert alert-warning' role='alert'>当天日报已全部阅读，点击查看历史日报</div>");
-		} else {
-			$(".really-container").css("display", "block");
-		}
-  	},
-  	error : function() {
-  		alert("异常！");
-  	}
-  });
-}
-</script>
 
 </html>
