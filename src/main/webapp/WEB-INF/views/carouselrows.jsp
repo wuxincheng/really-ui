@@ -16,11 +16,13 @@
 </head>
 
 <body>
-  <div style="margin: 0px 0px 15px 0px; border-top: 2px solid #603811;"></div>
+  <div class="date-tip">
+    <span>咖啡日报</span>
+  </div>
    
   <div class="container" id="news-container">
     <c:forEach items="${pager.news}" var="obj" varStatus="s">
-      <div class="row carousel-row" id="row${s.index+1}">
+      <div class="row carousel-row" id="row-new-pad">
         <div class="col-xs-12 col-xs-offset-0 slide-row">
           <div id="carousel-1" class="carousel slide slide-carousel" data-ride="carousel">
             <div class="carousel-inner">
@@ -35,11 +37,10 @@
           </div>
           <div class="slide-footer">
             <span class="pull-left">
-              <span>来源：${obj.domain}</span>
+              <span>${obj.createTime}&nbsp;&nbsp;/&nbsp;&nbsp;阅读（<fmt:formatNumber value="${obj.truthDegree}" pattern="#" type="number"/>）
+              </span>
             </span>
-            <span class="pull-right">
-              <i class="fa fa-fw fa-eye"></i> <fmt:formatNumber value="${obj.truthDegree}" pattern="#" type="number"/>
-            </span>
+            <span class="pull-right"><span class="label label-danger">${obj.domain}</span></span>
           </div>
         </div>
       </div>
@@ -60,6 +61,10 @@
 <script src="<%=request.getContextPath()%>/assets/js/bootstrap.js"></script>
 
 <script type="text/javascript">
+// 滚动条触发事件
+window.onscroll = function(){
+};
+
 function loadMore () {
   var html = "<div class='row carousel-row'><div class='col-xs-12 col-xs-offset-0 slide-row'>"
   	+ "<div id='carousel-1' class='carousel slide slide-carousel' data-ride='carousel'>"
