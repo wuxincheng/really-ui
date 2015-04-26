@@ -8,14 +8,17 @@ body {
     margin-bottom: 30px;
 }
 
+.top-tip-line {
+  border-bottom: 1px solid #603811;
+}
+
 .date-tip {
   padding: 10px;
   background-color: #603811;
-  margin-bottom: 10px;
-  color: #FFFFFF; 
+  margin: 10px -10px;
+  color: #FFFFFF;
   font-size: 14px;
-  text-align: center;
-  width: 100%;
+  text-align: left;
 }
 
 /*REQUIRED*/

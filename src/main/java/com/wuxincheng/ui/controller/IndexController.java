@@ -2,6 +2,7 @@ package com.wuxincheng.ui.controller;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wuxincheng.ui.model.News;
 import com.wuxincheng.ui.service.NewsService;
 import com.wuxincheng.ui.util.DateUtil;
 import com.wuxincheng.ui.util.Validation;
@@ -98,6 +100,11 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 				pager.put("pageSize", pageSize);
 				
 				model.addAttribute("pager", pager);
+				
+				// 设置第一个显示的日期
+				@SuppressWarnings("unchecked")
+				List<News> news = (List<News>)pager.get("news");
+				model.addAttribute("firstCreateTime", news.get(0).getCreateTime());
 			} else {
 				model.addAttribute("news", Collections.EMPTY_LIST);
 				logger.info("没有查询到文章信息");

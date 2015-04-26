@@ -16,12 +16,24 @@
 </head>
 
 <body>
-  <div class="date-tip">
-    <span>咖啡日报</span>
+  <div class="top-tip-line">
   </div>
-   
+  
+  <!-- 图片显示 -->
+  <div style="width: 100%; text-align: center;">
+    <img src="<%=request.getContextPath()%>/assets/images/index-pic.jpg" style="max-width: 100%; height: auto;" />
+  </div>
+  <c:set var="lastCreateTimeTmp" />
   <div class="container" id="news-container">
+    <div class="date-tip">
+      <span>${firstCreateTime}</span>
+    </div>
     <c:forEach items="${pager.news}" var="obj" varStatus="s">
+      <c:if test="${s.index > 0 && (obj.createTime != lastCreateTimeTmp)}">
+      <div class="date-tip">
+        <span>${obj.createTime}</span>
+      </div>
+      </c:if>
       <div class="row carousel-row" id="row-new-pad">
         <div class="col-xs-12 col-xs-offset-0 slide-row">
           <div id="carousel-1" class="carousel slide slide-carousel" data-ride="carousel">
@@ -32,18 +44,21 @@
             </div>
           </div>
           <div class="slide-content">
-            <span style="color: #000000; font-size: 14px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}</strong></a></span>
+            <span style="color: #000000; font-size: 16px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}</strong></a></span>
             <p style="color: #837E7E; margin-top: 5px;">${obj.subTitle}</p>
           </div>
           <div class="slide-footer">
             <span class="pull-left">
+              <!-- 
               <span>${obj.createTime}&nbsp;&nbsp;/&nbsp;&nbsp;阅读（<fmt:formatNumber value="${obj.truthDegree}" pattern="#" type="number"/>）
               </span>
+               -->
             </span>
             <span class="pull-right"><span class="label label-danger">${obj.domain}</span></span>
           </div>
         </div>
       </div>
+      <c:set var="lastCreateTimeTmp" value="${obj.createTime}" />
     </c:forEach>
   </div>
   
@@ -70,10 +85,10 @@ function loadMore () {
   	+ "<div id='carousel-1' class='carousel slide slide-carousel' data-ride='carousel'>"
   	+ "<div class='carousel-inner'><div class='item active'><a href='url' target='_blank'>"
   	+ "<img src='imgLink'></a></div></div></div><div class='slide-content'>"
-  	+ "<span style='color: #000000; font-size: 14px;'><a href='url' target='_blank'>title</a></span>"
+  	+ "<span style='color: #000000; font-size: 16px;'><a href='url' target='_blank'><strong>title</strong></a></span>"
   	+ "<p style='color: #837E7E; margin-top: 5px;'>subTitle</p></div><div class='slide-footer'>"
-  	+ "<span class='pull-left'><span>来源：domain</span></span><span class='pull-right'>"
-  	+ "<i class='fa fa-fw fa-eye'></i> truthDegree"
+  	+ "<span class='pull-left'><span></span></span><span class='pull-right'>"
+  	+ "<span class='label label-danger'>domain</span>"
   	+ "</span></div></div></div>";
   	
   var url = "<%=request.getContextPath()%>/index/more";
@@ -104,6 +119,22 @@ function loadMore () {
 						   .replace("url", obj.url)
 						   .replace("domain", obj.domain)
 						   .replace("truthDegree", obj.truthDegree);
+			
+			if (i > 0) {
+				// 获取上一个日报对象
+    			var lastObj = objs[i-1];
+				// 上一个日报对象的发布日期
+    			var lastCreateTime = lastObj.createTime;
+				// 当前日报的发布日期
+    			var currentCreateTime = obj.createTime;
+				// 如果不一样的话, 那么显示日期的分隔
+    			if (lastCreateTime != currentCreateTime) {
+    				// 
+    				var timeLine = "<div class='date-tip'><span>"+obj.createTime+"</span></div>";
+    				$("#news-container").append(timeLine);
+    			}
+			}
+			
 			$("#news-container").append(show);
 		});
 		

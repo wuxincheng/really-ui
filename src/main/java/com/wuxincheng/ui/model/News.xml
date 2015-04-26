@@ -62,14 +62,14 @@
     FROM T_REALLY_NEWS n 
       LEFT JOIN T_REALLY_COMMENT c ON n.PK = c.NEWS_ID
     WHERE n.PK = #id#
-  </select>  
+  </select>
   
   <select id="queryPager" parameterClass="java.util.Map" resultMap="NewsListMapping">
     SELECT 
     	n.PK, replace(n.DOMAIN, '微信.', '') AS DOMAIN, n.IMG_LINK, n.TRUTH_DEGREE, 
     	c.PK AS COMMENT_ID, n.TITLE, LEFT(n.SUB_TITLE, 35) AS SUB_TITLE,
         n.URL, n.TRUTH_DEGREE, n.OPINION_TIMES, 
-    	DATE_FORMAT(n.CREATE_TIME,'%m-%d') AS CREATE_TIME, 
+    	DATE_FORMAT(n.CREATE_TIME,'%m月%d日') AS CREATE_TIME, 
     	n.OPINION_TIMES, n.STATE, u.USERNAME, p.PUBLIC_NAME, p.PUBLIC_NO
     FROM T_REALLY_NEWS n 
     	LEFT JOIN T_REALLY_USER u ON n.CREATOR_ID = u.PK
