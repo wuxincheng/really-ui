@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>咖啡日报 - 基金行业最新资讯</title>
+<title>咖啡日报 - 萃取行业热点，提炼每日精华！</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
@@ -14,7 +14,16 @@
 <link href="<%=request.getContextPath()%>/assets/carouselrows/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <link href="<%=request.getContextPath()%>/assets/carouselrows/carouselrows.css" type="text/css" rel="stylesheet" />
 </head>
-
+<style type="text/css">
+/** ************************ Google Chrome Scrollbar CSS Style Line ************************ */
+/** 滚动条宽和高 */
+::-webkit-scrollbar { width: 15px; height: 15px;}
+/** 滚动条样式底部内层样式 */
+::-webkit-scrollbar-track-piece { background-color: #E0E0E0;}
+/** 滚动条滑块样式 */ /** 滚动条滑块边角–导圆角 */
+::-webkit-scrollbar-thumb{height: 50px; background-color: #BEBEBE; -webkit-border-radius: 0px;}
+/** ************************ Google Chrome Scrollbar CSS Style Line ************************ */
+</style>
 <body>
   <div class="top-tip-line">
   </div>
@@ -44,8 +53,8 @@
             </div>
           </div>
           <div class="slide-content">
-            <span style="color: #000000; font-size: 16px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}</strong></a></span>
-            <p style="color: #837E7E; margin-top: 5px;">${obj.subTitle}</p>
+            <span style="font-size: 16px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}</strong></a></span><br/>
+            <span style="color: #575252; font-size: 14px; margin-top: 5px;"><a href="${obj.url}" target="_blank">${obj.subTitle}</a></span>
           </div>
           <div class="slide-footer">
             <span class="pull-left">
@@ -54,7 +63,7 @@
               </span>
                -->
             </span>
-            <span class="pull-right"><span class="label label-danger">${obj.domain}</span></span>
+            <span class="pull-right" style="color: #A7A0A0; font-size: 12px;">来源：${obj.domain}</span>
           </div>
         </div>
       </div>
@@ -66,7 +75,7 @@
   
   <div id="load_more_div" class="container" style="text-align: center;">
     <div class="really-container">
-      <button id="moretag" class="btn btn-block btn-lg btn-warning" onclick="loadMore()" type="button">点击加载更多</button>
+      <button id="moretag" class="btn btn-block btn-lg" onclick="loadMore()" type="button">点击加载更多</button>
     </div>
   </div>
   <input type="hidden" id="nowCurrentPage" name="nowCurrentPage" value="2" />
@@ -85,10 +94,10 @@ function loadMore () {
   	+ "<div id='carousel-1' class='carousel slide slide-carousel' data-ride='carousel'>"
   	+ "<div class='carousel-inner'><div class='item active'><a href='url' target='_blank'>"
   	+ "<img src='imgLink'></a></div></div></div><div class='slide-content'>"
-  	+ "<span style='color: #000000; font-size: 16px;'><a href='url' target='_blank'><strong>title</strong></a></span>"
-  	+ "<p style='color: #837E7E; margin-top: 5px;'>subTitle</p></div><div class='slide-footer'>"
-  	+ "<span class='pull-left'><span></span></span><span class='pull-right'>"
-  	+ "<span class='label label-danger'>domain</span>"
+  	+ "<span style='color: #000000; font-size: 16px;'><a href='url' target='_blank'><strong>title</strong></a></span><br/>"
+  	+ "<span style='color: #575252; font-size: 14px; margin-top: 5px;'><a href='url' target='_blank'>subTitle</a></span></div>"
+  	+ "<div class='slide-footer'><span class='pull-left'><span></span></span>"
+  	+ "<span class='pull-right' style='color: #A7A0A0; font-size: 12px;'>来源：domain"
   	+ "</span></div></div></div>";
   	
   var url = "<%=request.getContextPath()%>/index/more";
