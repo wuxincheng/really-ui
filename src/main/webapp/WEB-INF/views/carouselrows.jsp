@@ -30,7 +30,7 @@
   
   <!-- 图片显示 -->
   <div style="width: 100%; text-align: center;">
-    <img src="<%=request.getContextPath()%>/assets/images/index-pic.jpg" style="max-width: 100%; height: auto;" />
+    <img src="<%=request.getContextPath()%>/assets/images/index-pic.png" style="max-width: 100%; height: auto;" />
   </div>
   <c:set var="lastCreateTimeTmp" />
   <div class="container" id="news-container">
@@ -53,8 +53,8 @@
             </div>
           </div>
           <div class="slide-content">
-            <span style="font-size: 16px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}</strong></a></span><br/>
-            <span style="color: #575252; font-size: 14px; margin-top: 5px;"><a href="${obj.url}" target="_blank">${obj.subTitle}</a></span>
+            <span style="font-size: 16px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}</strong></a></span>
+            <p style="color: #575252; font-size: 13px; margin-top: 5px;"><a href="${obj.url}" target="_blank">${obj.subTitle}</a></p>
           </div>
           <div class="slide-footer">
             <span class="pull-left">
@@ -63,7 +63,7 @@
               </span>
                -->
             </span>
-            <span class="pull-right" style="color: #A7A0A0; font-size: 12px;">来源：${obj.domain}</span>
+            <span class="pull-right" style="color: #A7A0A0; font-size: 12px;">${obj.domain}</span>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ function loadMore () {
   	+ "<span style='color: #000000; font-size: 16px;'><a href='url' target='_blank'><strong>title</strong></a></span><br/>"
   	+ "<span style='color: #575252; font-size: 14px; margin-top: 5px;'><a href='url' target='_blank'>subTitle</a></span></div>"
   	+ "<div class='slide-footer'><span class='pull-left'><span></span></span>"
-  	+ "<span class='pull-right' style='color: #A7A0A0; font-size: 12px;'>来源：domain"
+  	+ "<span class='pull-right' style='color: #A7A0A0; font-size: 12px;'>domain"
   	+ "</span></div></div></div>";
   	
   var url = "<%=request.getContextPath()%>/index/more";

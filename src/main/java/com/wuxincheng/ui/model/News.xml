@@ -67,7 +67,7 @@
   <select id="queryPager" parameterClass="java.util.Map" resultMap="NewsListMapping">
     SELECT 
     	n.PK, replace(n.DOMAIN, '微信.', '') AS DOMAIN, n.IMG_LINK, n.TRUTH_DEGREE, 
-    	c.PK AS COMMENT_ID, n.TITLE, LEFT(n.SUB_TITLE, 33) AS SUB_TITLE,
+    	c.PK AS COMMENT_ID, n.TITLE, LEFT(n.SUB_TITLE, 55) AS SUB_TITLE,
         n.URL, n.TRUTH_DEGREE, n.OPINION_TIMES, 
     	DATE_FORMAT(n.CREATE_TIME,'%m月%d日') AS CREATE_TIME, 
     	n.OPINION_TIMES, n.STATE, u.USERNAME, p.PUBLIC_NAME, p.PUBLIC_NO
