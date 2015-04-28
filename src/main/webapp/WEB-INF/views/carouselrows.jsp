@@ -95,7 +95,7 @@ function loadMore () {
   	+ "<div class='carousel-inner'><div class='item active'><a href='url' target='_blank'>"
   	+ "<img src='imgLink'></a></div></div></div><div class='slide-content'>"
   	+ "<span style='color: #000000; font-size: 16px;'><a href='url' target='_blank'><strong>title</strong></a></span><br/>"
-  	+ "<span style='color: #575252; font-size: 14px; margin-top: 5px;'><a href='url' target='_blank'>subTitle</a></span></div>"
+  	+ "<span style='color: #575252; font-size: 13px; margin-top: 5px;'><a href='url' target='_blank'>subTitle</a></span></div>"
   	+ "<div class='slide-footer'><span class='pull-left'><span></span></span>"
   	+ "<span class='pull-right' style='color: #A7A0A0; font-size: 12px;'>domain"
   	+ "</span></div></div></div>";
@@ -124,6 +124,7 @@ function loadMore () {
 			var show = html.replace("imgLink", obj.imgLink)
 						   .replace("title", obj.title)
 						   .replace("subTitle", obj.subTitle)
+						   .replace("url", obj.url)
 						   .replace("url", obj.url)
 						   .replace("url", obj.url)
 						   .replace("domain", obj.domain)
