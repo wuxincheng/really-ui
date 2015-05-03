@@ -77,7 +77,7 @@
     	LEFT JOIN T_REALLY_COMMENT c ON n.PK = c.NEWS_ID
     <dynamic prepend="WHERE">
       <isNotNull prepend="AND" property="start">
-        n.STATE = '1'
+        n.STATE = '0'
       </isNotNull>
       <isNotNull prepend="AND" property="queryStartDate">
         DATE_FORMAT(n.CREATE_TIME,'%Y%m%d') BETWEEN #queryStartDate# AND #queryEndDate#
