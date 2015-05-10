@@ -31,7 +31,7 @@ public class IndexController {
 private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
 	/** 每页显示条数 */
-	private final Integer pageSize = 20;
+	private final Integer pageSize = 10;
 	
 	/** 当前页面 */
 	private String currentPage;

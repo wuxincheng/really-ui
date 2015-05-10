@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>咖啡日报 - 萃取行业热点，提炼每日精华！</title>
+<title>咖啡日报 - 每天给你一杯对味的资讯！</title>
 <meta http-equiv="refresh" content="0;url=<%=request.getContextPath()%>/index/" >
 <link href="assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 <link href="assets/images/favicon.png" type="image/x-icon" rel="icon"/>

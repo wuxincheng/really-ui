@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>咖啡日报 - 萃取行业热点，提炼每日精华！</title>
+<title>咖啡日报 - 每天给你一杯对味的资讯！</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
@@ -73,13 +73,14 @@
   <p>&nbsp;</p>
   <div class="container">
     <div class="order-panel">
-      <span><strong>订阅咖啡日报的方法：</strong><br>
+      <span style="font-size: 16px;"><strong>订阅咖啡日报的方法：</strong></span><br>
+      <span style="font-size: 14px;">
       1、按住二维码3秒钟，选择识别二维码，关注公众号；<br/>
       2、直接在公众号搜索：咖啡日报（kafeiribao）;<br>
       3、直接访问&nbsp;<a href="http://www.kaffeedaily.com">www.kaffeedaily.com</a></span>
     </div>
   </div>
-  <div style="width: 100%; text-align: center; margin: 15px 0px;">
+  <div style="width: 100%; text-align: center; margin: 0px 0px 15px 0px;">
     <a href="weixin://contacts/profile/kafeiribao">
       <img src="<%=request.getContextPath()%>/assets/images/qrcode/cafei_258.jpg" style="max-width: 100%; height: auto;" />
     </a>
