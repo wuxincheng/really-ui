@@ -39,20 +39,6 @@
     </div>
     <c:forEach items="${pager.news}" var="obj" varStatus="s">
       <c:if test="${s.index > 0 && (obj.createTime != lastCreateTimeTmp)}">
-      <div class="container">
-        <div class="order-panel">
-          <span style="font-size: 16px;"><strong>订阅咖啡日报的方法：</strong></span><br>
-          <span style="font-size: 14px;">
-          1、按住二维码3秒钟，选择识别二维码，关注公众号；<br/>
-          2、直接在公众号搜索：咖啡日报（kafeiribao）;<br>
-          3、直接访问&nbsp;<a href="http://www.kaffeedaily.com">www.kaffeedaily.com</a></span>
-        </div>
-      </div>
-      <div style="width: 100%; text-align: center; margin: 0px 0px 15px 0px;">
-        <a href="weixin://contacts/profile/kafeiribao">
-          <img src="<%=request.getContextPath()%>/assets/images/qrcode/cafei_258.jpg" style="max-width: 100%; height: auto;" />
-        </a>
-      </div>
       <div class="date-tip">
         <span>${obj.createTime}</span>
       </div>
@@ -83,6 +69,21 @@
       </div>
       <c:set var="lastCreateTimeTmp" value="${obj.createTime}" />
     </c:forEach>
+  </div>
+  <p>&nbsp;</p>
+  <div class="container">
+    <div class="order-panel">
+      <span style="font-size: 16px;"><strong>订阅咖啡日报的方法：</strong></span><br>
+      <span style="font-size: 14px;">
+      1、按住二维码3秒钟，选择识别二维码，关注公众号；<br/>
+      2、直接在公众号搜索：咖啡日报（kafeiribao）;<br>
+      3、直接访问&nbsp;<a href="http://www.kaffeedaily.com">www.kaffeedaily.com</a></span>
+    </div>
+  </div>
+  <div style="width: 100%; text-align: center; margin: 0px 0px 15px 0px;">
+    <a href="weixin://contacts/profile/kafeiribao">
+      <img src="<%=request.getContextPath()%>/assets/images/qrcode/cafei_258.jpg" style="max-width: 100%; height: auto;" />
+    </a>
   </div>
   
   <div id="loading" style="text-align: center; width: 100%;"></div>
@@ -153,16 +154,9 @@ function loadMore () {
     			var currentCreateTime = obj.createTime;
 				// 如果不一样的话, 那么显示日期的分隔
     			if (lastCreateTime != currentCreateTime) {
-    				var order = "<div class='container'><div class='order-panel'><span style='font-size: 16px;'><strong>订阅咖啡日报的方法：</strong></span><br>"
-    					+ "<span style='font-size: 14px;'>1、按住二维码3秒钟，选择识别二维码，关注公众号；<br/>2、直接在公众号搜索：咖啡日报（kafeiribao）;<br>"
-    					+ "3、直接访问&nbsp;<a href='http://www.kaffeedaily.com'>www.kaffeedaily.com</a></span></div></div>"
-    					+ "<div style='width: 100%; text-align: center; margin: 0px 0px 15px 0px;'><a href='weixin://contacts/profile/kafeiribao'>"
-    					+ "<img src='<%=request.getContextPath()%>/assets/images/qrcode/cafei_258.jpg' style='max-width: 100%; height: auto;' />"
-    					+ "</a></div>";
-    				
     				// 
     				var timeLine = "<div class='date-tip'><span>"+obj.createTime+"</span></div>";
-    				$("#news-container").append(order).append(timeLine);
+    				$("#news-container").append(timeLine);
     			}
 			}
 			
