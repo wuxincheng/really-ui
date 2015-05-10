@@ -30,7 +30,7 @@
   
   <!-- 图片显示 -->
   <div style="width: 100%; text-align: center;">
-    <img src="<%=request.getContextPath()%>/assets/images/index-pic.png" style="max-width: 100%; height: auto;" />
+    <img src="<%=request.getContextPath()%>/assets/images/index-change0.png" style="max-width: 100%; height: auto;" />
   </div>
   <c:set var="lastCreateTimeTmp" />
   <div class="container" id="news-container">
@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="slide-content">
-            <span style="font-size: 16px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}</strong></a></span>
+            <span style="font-size: 16px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}55</strong></a></span>
             <p style="color: #575252; font-size: 13px; margin-top: 5px;"><a href="${obj.url}" target="_blank">${obj.subTitle}</a></p>
           </div>
           <div class="slide-footer">
@@ -69,6 +69,20 @@
       </div>
       <c:set var="lastCreateTimeTmp" value="${obj.createTime}" />
     </c:forEach>
+  </div>
+  <p>&nbsp;</p>
+  <div class="container">
+    <div class="order-panel">
+      <span><strong>订阅咖啡日报的方法：</strong><br>
+      1、按住二维码3秒钟，选择识别二维码，关注公众号；<br/>
+      2、直接在公众号搜索：咖啡日报（kafeiribao）;<br>
+      3、直接访问&nbsp;<a href="http://www.kaffeedaily.com">www.kaffeedaily.com</a></span>
+    </div>
+  </div>
+  <div style="width: 100%; text-align: center; margin: 15px 0px;">
+    <a href="weixin://contacts/profile/kafeiribao">
+      <img src="<%=request.getContextPath()%>/assets/images/qrcode/cafei_258.jpg" style="max-width: 100%; height: auto;" />
+    </a>
   </div>
   
   <div id="loading" style="text-align: center; width: 100%;"></div>
@@ -163,4 +177,14 @@ function loadMore () {
 }
 </script>
 
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?dd71b165a006d5e6f7e464b857fca722";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </html>

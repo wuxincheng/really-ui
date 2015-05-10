@@ -115,3 +115,9 @@ a:visited {color: #8B8888}
 .really-container {
   margin: 0px -10px;
 }
+
+.order-panel {
+  width: 100%; 
+  text-align: left; 
+  line-height: 2;
+}
