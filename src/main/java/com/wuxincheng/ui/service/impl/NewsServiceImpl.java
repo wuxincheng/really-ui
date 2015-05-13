@@ -16,6 +16,7 @@ import com.wuxincheng.ui.dao.NewsDao;
 import com.wuxincheng.ui.model.Comment;
 import com.wuxincheng.ui.model.News;
 import com.wuxincheng.ui.service.NewsService;
+import com.wuxincheng.ui.util.Constants;
 
 /**
  * 帖子Service
@@ -30,9 +31,11 @@ public class NewsServiceImpl implements NewsService {
 	@Resource private NewsDao newsDao;
 	@Resource private CommentDao commentDao;
 	
+	private static final String WEB_NAME = Constants.WEB_NAME;
+	
 	@Override
 	public Map<String, Object> queryPager(Map<String, Object> queryParam) {
-		logger.info("查询所有博客信息");
+		logger.info(WEB_NAME+"查询所有博客信息");
 		
 		// 返回结果
 		Map<String, Object> reault = new HashMap<String, Object>();
@@ -54,14 +57,14 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public News queryNewsById(String newsId) {
-		logger.info("根据主键查询帖子, newsId: " + newsId);
+		logger.info(WEB_NAME+"根据主键查询帖子, newsId: " + newsId);
 		
 		return newsDao.queryNewsById(newsId);
 	}
 
 	@Override
 	public void edit(News news) {
-		logger.info("编辑帖子");
+		logger.info(WEB_NAME+"编辑帖子");
 		
 		if (news.getId() != null && !"".equals(news.getId())) { // 更新
 			newsDao.update(news);
@@ -91,7 +94,7 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public void sendNews4App(String newsId) {
-		logger.info("发布帖子");
+		logger.info("WEB_NAME+发布帖子");
 		
 		newsDao.sendNews4App(newsId);
 		commentDao.sendNews4App(newsId);
@@ -99,7 +102,7 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public void delete(Long newsId) {
-		logger.info("删除帖子");
+		logger.info("WEB_NAME+删除帖子");
 		
 		// 删除帖子
 		newsDao.delete(newsId);
