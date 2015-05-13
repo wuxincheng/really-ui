@@ -28,21 +28,30 @@
 /** ************************ Google Chrome Scrollbar CSS Style Line ************************ */
 </style>
 <body>
-  <div class="navbar-fixed-top">
-    <div class="container" style="background-color: #F8F3F3; padding: 5px 20px; border: 0px solid #DC143C;">
+  <!-- navbar-fixed-top start -->
+  <div class="navbar-fixed-top" style="background-color: #F8F3F3; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <!-- container start -->
+    <div class="container" style="padding: 5px 20px; border-bottom: 0px solid #CAC3C3;">
+      <!-- pull-left start -->
       <div class="pull-left">
-        <img src="<%=request.getContextPath()%>/assets/images/top-show.png" style="width: 168px; height: 60px;" />
+        <img src="<%=request.getContextPath()%>/assets/images/top-show.png" style="width: 108px; height: 40px;" />
       </div>
+      <!-- pull-left end -->
+      
+      <!-- pull-right start -->
       <div class="pull-right">
-        <div style="margin-top: 15px;">
-        <a href="http://www.kaffeedaily.com">
-          <button class="btn btn-block btn-warning" type="button">
-          &nbsp;&nbsp;&nbsp;&nbsp;关注&nbsp;&nbsp;&nbsp;&nbsp;
-          </button>
+        <div style="margin-top: 5px;">
+          <a href="weixin://contacts/profile/kafeiribao">
+            <button class="btn btn-block btn-warning btn-sm" type="button">
+            &nbsp;&nbsp;&nbsp;&nbsp;关注&nbsp;&nbsp;&nbsp;&nbsp;
+            </button>
           </a>
         </div>
       </div>
+      <!-- pull-right end -->
+      
     </div>
+    <!-- container end -->
   
     <!-- 
     <form class="form-inline">
@@ -60,12 +69,12 @@
       </div>
     </form>
      -->
-    
   </div>
+  <!-- navbar-fixed-top end -->
   
   <div>
-    <iframe id="main" name="main" src="${news.url}" style="width:100%; height: 500px; margin-top: 60px;"
-      frameborder="0" scrolling="auto" marginheight="0"></iframe> 
+    <iframe id="main" name="main" src="${news.url}" style="width:100%; height: 500px; margin-top: 50px;"
+      frameborder="0" scrolling="auto" marginheight="0" ></iframe> 
   </div>
   
   <!-- 
@@ -93,7 +102,7 @@
 <script type="text/javascript">
 $("#main").load(function(){  
     var browerHeight = $(window).height();
-    $(this).height(browerHeight-100);
+    $(this).height(browerHeight);
 });
 </script>
 </html>
