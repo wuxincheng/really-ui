@@ -57,11 +57,13 @@ a {
       
       <!-- pull-right start -->
       <div class="pull-right">
+        <!-- 
         <div style="margin-top: 12px;">
           <span class="label label-warning" style="">
             <a href="weixin://contacts/profile/kafeiribao">关注</a>
           </span>
         </div>
+         -->
       </div>
       <!-- pull-right end -->
       
@@ -92,7 +94,6 @@ a {
       frameborder="0" scrolling="auto" marginheight="0" ></iframe> 
   </div>
   
-  <!-- 
   <div class="container">
     <div class="order-panel">
       <span style="font-size: 16px;"><strong>订阅咖啡日报的方法：</strong></span><br>
@@ -108,7 +109,6 @@ a {
       </a>
     </div>
   </div>
-   -->
 </body>
 
 <script src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
