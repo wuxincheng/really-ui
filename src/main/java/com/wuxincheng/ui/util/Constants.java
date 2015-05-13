@@ -17,4 +17,7 @@ public class Constants {
 	/** 信息类型: 错误信息 */
 	public static final String MSG_TYPE_DANGER = "danger";
 	
+	/** 信息类型: 错误信息 */
+	public static final String WEB_NAME = "咖啡网站: ";
+	
 }

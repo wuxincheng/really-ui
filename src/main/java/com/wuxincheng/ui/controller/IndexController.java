@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wuxincheng.ui.model.News;
 import com.wuxincheng.ui.service.NewsService;
+import com.wuxincheng.ui.util.Constants;
 import com.wuxincheng.ui.util.DateUtil;
 import com.wuxincheng.ui.util.Validation;
 
@@ -36,6 +37,8 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 	/** 当前页面 */
 	private String currentPage;
 	
+	private static final String WEB_NAME = Constants.WEB_NAME;
+	
 	@Autowired private NewsService newsService;
 	
 	/** 查询日期 */
@@ -45,7 +48,7 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 	@RequestMapping(value = "/")
 	public String list(HttpServletRequest request, String currentPage, 
 			String queryStartDate, String queryEndDate, Model model) {
-		logger.info("显示文章列表页面");
+		logger.info(WEB_NAME + "显示文章列表页面");
 		
 		if (Validation.isBlank(currentPage) || !Validation.isInt(currentPage, "0+")) {
 			currentPage = "1";
@@ -107,10 +110,10 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 				model.addAttribute("firstCreateTime", news.get(0).getCreateTime());
 			} else {
 				model.addAttribute("news", Collections.EMPTY_LIST);
-				logger.info("没有查询到文章信息");
+				logger.info(WEB_NAME + "没有查询到文章信息");
 			}
 		} catch (Exception e) {
-			logger.error("在查询文章明细时出现异常", e);
+			logger.info(WEB_NAME + "没有查询到文章信息", e);
 		}
 		
 		return "carouselrows";
@@ -119,7 +122,7 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 	@RequestMapping(value = "/more")
 	@ResponseBody
 	public Map<String, Object> more(String currentPage) {
-		logger.info("点击加载更多：" + currentPage);
+		logger.info(WEB_NAME + "点击加载更多: " + currentPage);
 		
 		if (Validation.isBlank(currentPage) || !Validation.isInt(currentPage, "0+")) {
 			currentPage = "1";
@@ -169,13 +172,31 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 				pager.put("currentPage", current);
 				pager.put("pageSize", pageSize);
 			} else {
-				logger.info("没有查询到文章信息");
+				logger.info(WEB_NAME + "没有查询到文章信息");
 			}
 		} catch (Exception e) {
-			logger.error("在查询文章明细时出现异常", e);
+			logger.info(WEB_NAME + "查询文章明细时出现异常", e);
 		}
 		
 		return pager;
+	}
+	
+	@RequestMapping(value = "/detail")
+	public String detail(String id, Model model) {
+		if (StringUtils.isEmpty(id)) {
+			logger.info(WEB_NAME + "ID链接为空");
+			model.addAttribute("msg", "链接为空");
+		}
+		
+		News news = newsService.queryNewsById(id);
+		if (null == news) {
+			logger.info(WEB_NAME + "文章不存在 id={}", id);
+			model.addAttribute("msg", "文章不存在");
+		}
+		
+		model.addAttribute("news", news);
+		
+		return "article_detail";
 	}
 	
 }

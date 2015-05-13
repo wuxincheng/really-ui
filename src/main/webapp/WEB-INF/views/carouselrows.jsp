@@ -11,6 +11,9 @@
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
 <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
 
+<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
+<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
+
 <link href="<%=request.getContextPath()%>/assets/carouselrows/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
 <link href="<%=request.getContextPath()%>/assets/carouselrows/carouselrows.css" type="text/css" rel="stylesheet" />
 </head>
@@ -62,13 +65,13 @@
           <div id="carousel-1" class="carousel slide slide-carousel" data-ride="carousel">
             <div class="carousel-inner">
               <div class="item active">
-                <a href="${obj.url}" target="_blank"><img src="${obj.imgLink}"></a>
+                <a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank"><img src="${obj.imgLink}"></a>
               </div>
             </div>
           </div>
           <div class="slide-content">
-            <span style="font-size: 16px;"><a href="${obj.url}" target="_blank"><strong>${obj.title}55</strong></a></span>
-            <p style="color: #575252; font-size: 13px; margin-top: 5px;"><a href="${obj.url}" target="_blank">${obj.subTitle}</a></p>
+            <span style="font-size: 16px;"><a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank"><strong>${obj.title}</strong></a></span>
+            <p style="color: #575252; font-size: 13px; margin-top: 5px;"><a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank">${obj.subTitle}</a></p>
           </div>
           <div class="slide-footer">
             <span class="pull-left">
@@ -135,12 +138,13 @@ function loadMore () {
 		
 		var objs = data.news;
 		$.each(objs, function(i, obj){
+			var detail_url = "<%=request.getContextPath()%>/index/detail?id=" + obj.id;
 			var show = html.replace("imgLink", obj.imgLink)
 						   .replace("title", obj.title)
 						   .replace("subTitle", obj.subTitle)
-						   .replace("url", obj.url)
-						   .replace("url", obj.url)
-						   .replace("url", obj.url)
+						   .replace("url", detail_url)
+						   .replace("url", detail_url)
+						   .replace("url", detail_url)
 						   .replace("domain", obj.domain)
 						   .replace("truthDegree", obj.truthDegree);
 			
