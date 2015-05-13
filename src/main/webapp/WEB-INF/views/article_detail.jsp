@@ -97,6 +97,12 @@ a {
   </div>
   
   <div class="container" style="margin-top: 10px;">
+    <div style="width: 100%; text-align: center; margin: 0px 0px 15px 0px;">
+      <img src="${obj.imgLink}">
+    </div>
+  </div>
+  
+  <div class="container" style="margin-top: 10px;">
     <div class="order-panel">
       <span style="font-size: 16px;"><strong>订阅咖啡日报的方法：</strong></span><br>
       <span style="font-size: 14px;">
