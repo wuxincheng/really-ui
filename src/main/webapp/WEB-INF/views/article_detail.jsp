@@ -5,11 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>咖啡日报 - 每天给你一杯对味的资讯！</title>
+<title>${news.title}_咖啡日报</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
 <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+<meta name="keywords" content="${news.title}_咖啡日报">
+<meta name="Description" content="${news.title}_咖啡日报">
 
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>

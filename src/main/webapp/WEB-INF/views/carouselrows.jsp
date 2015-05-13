@@ -71,7 +71,9 @@
           </div>
           <div class="slide-content">
             <span style="font-size: 16px;"><a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank"><strong>${obj.title}</strong></a></span>
+            <!-- 
             <p style="color: #575252; font-size: 13px; margin-top: 5px;"><a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank">${obj.subTitle}</a></p>
+             -->
           </div>
           <div class="slide-footer">
             <span class="pull-left">
@@ -96,6 +98,7 @@
     </div>
   </div>
   <input type="hidden" id="nowCurrentPage" name="nowCurrentPage" value="2" />
+  <p>&nbsp;</p>
 </body>
 
 <script src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
@@ -112,7 +115,7 @@ function loadMore () {
   	+ "<div class='carousel-inner'><div class='item active'><a href='url' target='_blank'>"
   	+ "<img src='imgLink'></a></div></div></div><div class='slide-content'>"
   	+ "<span style='color: #000000; font-size: 16px;'><a href='url' target='_blank'><strong>title</strong></a></span><br/>"
-  	+ "<span style='color: #575252; font-size: 13px; margin-top: 5px;'><a href='url' target='_blank'>subTitle</a></span></div>"
+  	+ "</div>" // <span style='color: #575252; font-size: 13px; margin-top: 5px;'><a href='url' target='_blank'>subTitle</a></span>
   	+ "<div class='slide-footer'><span class='pull-left'><span></span></span>"
   	+ "<span class='pull-right' style='color: #A7A0A0; font-size: 12px;'>domain"
   	+ "</span></div></div></div>";
@@ -141,7 +144,7 @@ function loadMore () {
 			var detail_url = "<%=request.getContextPath()%>/index/detail?id=" + obj.id;
 			var show = html.replace("imgLink", obj.imgLink)
 						   .replace("title", obj.title)
-						   .replace("subTitle", obj.subTitle)
+						   //.replace("subTitle", obj.subTitle)
 						   .replace("url", detail_url)
 						   .replace("url", detail_url)
 						   .replace("url", detail_url)
