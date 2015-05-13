@@ -26,6 +26,23 @@
 /** 滚动条滑块样式 */ /** 滚动条滑块边角–导圆角 */
 ::-webkit-scrollbar-thumb{height: 50px; background-color: #BEBEBE; -webkit-border-radius: 0px;}
 /** ************************ Google Chrome Scrollbar CSS Style Line ************************ */
+
+.label {
+  display: inline;
+  padding: .5em .8em .5em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
 </style>
 <body>
   <!-- navbar-fixed-top start -->
@@ -40,12 +57,10 @@
       
       <!-- pull-right start -->
       <div class="pull-right">
-        <div style="margin-top: 5px;">
-          <a href="weixin://contacts/profile/kafeiribao">
-            <button class="btn btn-block btn-warning btn-sm" type="button">
-            &nbsp;&nbsp;&nbsp;&nbsp;关注&nbsp;&nbsp;&nbsp;&nbsp;
-            </button>
-          </a>
+        <div style="margin-top: 12px;">
+          <span class="label label-warning" style="">
+            <a href="weixin://contacts/profile/kafeiribao">关注</a>
+          </span>
         </div>
       </div>
       <!-- pull-right end -->
