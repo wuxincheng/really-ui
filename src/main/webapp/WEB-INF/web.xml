@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
-  xmlns:web="http://java.sun.com/xml/ns/javaee" 
-  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-  version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>really-ui</display-name>
-  <description>真象日报 - 基金行业最新资讯</description>
+  <description>咖啡日报 - 每天给你一杯对味的资讯</description>
+  
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:springContext.xml</param-value>
   </context-param>
+  <servlet>
+    <servlet-name>springWeb</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springMVC.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springWeb</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter
-    </filter-class>
+		</filter-class>
     <init-param>
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
@@ -27,24 +38,14 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
   <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener
-    </listener-class>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-  <servlet>
-    <servlet-name>springMVC</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet
-    </servlet-class>
-    <init-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:springMVC.xml</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>springMVC</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/views/404.jsp</location>
@@ -53,12 +54,7 @@
     <error-code>500</error-code>
     <location>/WEB-INF/views/500.jsp</location>
   </error-page>
-  <jsp-config>
-    <taglib>
-      <taglib-uri>/WEB-INF/hfn</taglib-uri>
-      <taglib-location>/WEB-INF/hfn.tld</taglib-location>
-    </taglib>
-  </jsp-config>
+  
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>

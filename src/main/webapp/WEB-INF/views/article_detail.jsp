@@ -8,7 +8,8 @@
 <title>[咖啡日报]${news.title}</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+<!-- 禁止移动端浏览器缩放 -->
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
 <meta name="keywords" content="[咖啡日报]${news.title}">
 <meta name="Description" content="[咖啡日报]${news.title}">
@@ -53,7 +54,9 @@ a {
     <div class="container" style="padding: 5px 20px; border-bottom: 0px solid #CAC3C3;">
       <!-- pull-left start -->
       <div class="pull-left">
-        <img src="<%=request.getContextPath()%>/assets/images/top-show.jpg" style="width: 108px; height: 34px;" />
+        <a href="<%=request.getContextPath()%>/index/">
+          <img src="<%=request.getContextPath()%>/assets/images/top-show.jpg" style="width: 162px; height: 50px;" />
+        </a>
       </div>
       <!-- pull-left end -->
       
@@ -61,7 +64,7 @@ a {
       <div class="pull-right">
         <div style="margin-top: 7px;">
           <a href="#order-box">
-            <button class="btn btn-warning btn-block btn-xs" type="button">
+            <button class="btn btn-warning btn-block" type="button">
             &nbsp;&nbsp;&nbsp;关&nbsp;注&nbsp;&nbsp;&nbsp;</button>
           </a>
         </div>
@@ -92,7 +95,7 @@ a {
   <!-- navbar-fixed-top end -->
   
   <div>
-    <iframe id="main" name="main" src="${news.url}" style="width:100%; height: 500px; margin-top: 50px;"
+    <iframe id="main" name="main" src="${news.url}" style="width:100%; height: 500px; margin-top: 65px;"
       frameborder="0" scrolling="auto" marginheight="0" ></iframe> 
   </div>
   
@@ -110,6 +113,11 @@ a {
         <img src="<%=request.getContextPath()%>/assets/images/qrcode/cafei_258.jpg" style="max-width: 100%; height: auto;" />
       </a>
     </div>
+  </div>
+  
+  <!-- 图片显示 -->
+  <div style="width: 100%; text-align: center;">
+    <img src="<%=request.getContextPath()%>/assets/images/coffee-logo-fetch.png" style="max-width: 1px; height: 1px;" />
   </div>
 </body>
 
