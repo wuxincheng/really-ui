@@ -9,7 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <!-- 禁止移动端浏览器缩放 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<!-- 
 <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+ -->
 <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
 <meta name="keywords" content="[咖啡日报]${news.title}">
 <meta name="Description" content="[咖啡日报]${news.title}">
@@ -117,7 +120,7 @@ a {
   
   <!-- 图片显示 -->
   <div style="width: 100%; text-align: center;">
-    <img src="<%=request.getContextPath()%>/assets/images/coffee-logo-fetch.png" style="max-width: 1px; height: 1px;" />
+    <img src="<%=request.getContextPath()%>/assets/images/coffee-logo-fetch.jpg" style="max-width: 1px; height: 1px;" />
   </div>
 </body>
 
