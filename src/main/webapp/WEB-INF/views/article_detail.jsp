@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${news.title}_咖啡日报</title>
+<title>[咖啡日报]${news.title}</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
 <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
-<meta name="keywords" content="${news.title}_咖啡日报">
-<meta name="Description" content="${news.title}_咖啡日报">
+<meta name="keywords" content="[咖啡日报]${news.title}">
+<meta name="Description" content="[咖啡日报]${news.title}">
 
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
@@ -48,30 +48,29 @@ a {
 </style>
 <body>
   <!-- navbar-fixed-top start -->
-  <div class="navbar-fixed-top" style="background-color: #F8F3F3; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+  <div class="navbar-fixed-top" style="background-color: #F8F3F3; box-shadow: 0 0 20px rgba(0,0,0,0.2);">
     <!-- container start -->
     <div class="container" style="padding: 5px 20px; border-bottom: 0px solid #CAC3C3;">
       <!-- pull-left start -->
       <div class="pull-left">
-        <img src="<%=request.getContextPath()%>/assets/images/top-show.png" style="width: 108px; height: 40px;" />
+        <img src="<%=request.getContextPath()%>/assets/images/top-show.jpg" style="width: 108px; height: 34px;" />
       </div>
       <!-- pull-left end -->
       
       <!-- pull-right start -->
       <div class="pull-right">
-        <!-- 
-        <div style="margin-top: 12px;">
-          <span class="label label-warning" style="">
-            <a href="weixin://contacts/profile/kafeiribao">关注</a>
-          </span>
+        <div style="margin-top: 7px;">
+          <a href="#order-box">
+            <button class="btn btn-warning btn-block btn-xs" type="button">
+            &nbsp;&nbsp;&nbsp;关&nbsp;注&nbsp;&nbsp;&nbsp;</button>
+          </a>
         </div>
-         -->
       </div>
       <!-- pull-right end -->
       
     </div>
     <!-- container end -->
-  
+    
     <!-- 
     <form class="form-inline">
       <div class="form-group">
@@ -83,11 +82,12 @@ a {
         <span><h5>&nbsp;</h5></span>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail2"><h4><b>咖啡日报</b></h4></label><br>
-        <span><h5>每天给你一杯对味的资讯</h5></span>
+        <label for="exampleInputEmail2"><h3><b>咖啡日报</b></h3></label><br>
+        <span><h4>每天给你一杯对味的资讯</h4></span>
       </div>
     </form>
      -->
+    
   </div>
   <!-- navbar-fixed-top end -->
   
@@ -96,22 +96,16 @@ a {
       frameborder="0" scrolling="auto" marginheight="0" ></iframe> 
   </div>
   
-  <div class="container" style="margin-top: 10px;">
-    <div style="width: 100%; text-align: center; margin: 0px 0px 15px 0px;">
-      <img src="${obj.imgLink}">
-    </div>
-  </div>
-  
-  <div class="container" style="margin-top: 10px;">
+  <div class="container" style="padding-top: 10px; border-top: 0px solid #F8F3F3;">
     <div class="order-panel">
       <span style="font-size: 16px;"><strong>订阅咖啡日报的方法：</strong></span><br>
       <span style="font-size: 14px;">
       1、按住二维码3秒钟，选择识别二维码，关注公众号；<br/>
       2、直接在公众号搜索：咖啡日报（kafeiribao）;<br>
-      3、直接访问&nbsp;<a href="http://www.kaffeedaily.com">www.kaffeedaily.com</a></span>
+      3、直接访问&nbsp;www.kaffeedaily.com</span>
     </div>
     
-    <div style="width: 100%; text-align: center; margin: 0px 0px 15px 0px;">
+    <div id="order-box" name="order-box" style="width: 100%; text-align: center; margin: 0px 0px 15px 0px;">
       <a href="weixin://contacts/profile/kafeiribao">
         <img src="<%=request.getContextPath()%>/assets/images/qrcode/cafei_258.jpg" style="max-width: 100%; height: auto;" />
       </a>

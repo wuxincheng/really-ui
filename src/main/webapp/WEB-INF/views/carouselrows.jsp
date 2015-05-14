@@ -94,7 +94,7 @@
   
   <div id="load_more_div" class="container" style="text-align: center;">
     <div class="really-container">
-      <button id="moretag" class="btn btn-block btn-lg" onclick="loadMore()" type="button">点击加载更多</button>
+      <button id="moretag" class="btn btn-block btn-lg btn-warning" onclick="loadMore()" type="button">点击加载更多</button>
     </div>
   </div>
   <input type="hidden" id="nowCurrentPage" name="nowCurrentPage" value="2" />
