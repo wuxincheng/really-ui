@@ -128,6 +128,7 @@
     </dependency>
 
     <!-- 配置本地tools.jar -->
+    <!-- 
     <dependency>
       <groupId>com.sun</groupId>
       <artifactId>tools</artifactId>
@@ -135,6 +136,7 @@
       <scope>system</scope>
       <systemPath>C:/Program Files (x86)/Java/jdk1.6.0_39/lib/tools.jar</systemPath>
     </dependency>
+     -->
 
     <dependency>
       <groupId>dom4j</groupId>
@@ -221,8 +223,13 @@
       <version>1.1.6</version>
     </dependency>
 
-    <!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc14</artifactId> 
-      <version>10.2.0.4.0</version> </dependency> -->
+    <!-- 
+    <dependency> 
+      <groupId>com.oracle</groupId> 
+      <artifactId>ojdbc14</artifactId> 
+      <version>10.2.0.4.0</version> 
+    </dependency>
+     -->
 
     <dependency>
       <groupId>org.apache.ibatis</groupId>
@@ -247,21 +254,33 @@
 
     <dependency>
       <groupId>org.glassfish</groupId>
-      <artifactId>javax.persistence</artifactId>
-      <version>3.0-b29</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.glassfish</groupId>
       <artifactId>javax.servlet</artifactId>
-      <version>3.1.1</version>
+      <version>3.2-b06</version>
+      <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>javax.servlet.jsp</artifactId>
-      <version>3.1.1</version>
+      <version>3.2-b06</version>
+      <scope>provided</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.persistence</artifactId>
+      <version>3.0-b29</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- JSTL -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+      <scope>runtime</scope>
+    </dependency>
+    
+    <!-- 
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>javax.servlet.jsp.jstl</artifactId>
@@ -274,15 +293,9 @@
       <version>7.0</version>
       <scope>provided</scope>
     </dependency>
+     -->
 
-    <!-- JSTL -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
-      <scope>runtime</scope>
-    </dependency>
-
+    <!-- 
     <dependency>
       <groupId>org.apache.zookeeper</groupId>
       <artifactId>zookeeper</artifactId>
@@ -294,17 +307,20 @@
       <artifactId>zkclient</artifactId>
       <version>0.1</version>
     </dependency>
+     -->
 
+    <!-- guava(瓜娃)简化集合工作 -->
+    <!-- 
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>14.0.1</version>
     </dependency>
-
+     -->
   </dependencies>
 
   <build>
-    <finalName>wuxincheng-manage</finalName>
+    <finalName>really-ui</finalName>
 
     <pluginManagement>
       <plugins>
@@ -397,5 +413,10 @@
       </plugin>
     </plugins>
   </build>
+
+  <scm>
+    <url>https://github.com/wuxincheng/really-ui</url>
+    <developerConnection>wuxincheng</developerConnection>
+  </scm>
 
 </project>
