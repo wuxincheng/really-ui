@@ -59,6 +59,7 @@ a {
       <div class="pull-left">
         <a href="<%=request.getContextPath()%>/index/">
           <img src="<%=request.getContextPath()%>/assets/images/top-show.jpg" style="width: 162px; height: 50px;" />
+          &nbsp;&nbsp;返回到首页
         </a>
       </div>
       <!-- pull-left end -->
@@ -98,7 +99,7 @@ a {
   <!-- navbar-fixed-top end -->
   
   <div>
-    <iframe id="main" name="main" src="${news.url}" style="width:100%; height: 500px; margin-top: 65px;"
+    <iframe id="main" name="main" src="${news.url}" style="width:100%; height: 500px; margin-top: 60px;"
       frameborder="0" scrolling="auto" marginheight="0" ></iframe> 
   </div>
   
