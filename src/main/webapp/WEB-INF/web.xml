@@ -8,7 +8,7 @@
     <param-value>classpath:springContext.xml</param-value>
   </context-param>
   <servlet>
-    <servlet-name>springWeb</servlet-name>
+    <servlet-name>springMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
@@ -17,7 +17,7 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>springWeb</servlet-name>
+    <servlet-name>springMVC</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   
