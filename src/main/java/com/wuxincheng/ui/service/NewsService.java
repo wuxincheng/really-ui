@@ -50,5 +50,12 @@ public interface NewsService {
 	 * @param newsId
 	 */
 	public abstract void delete(Long newsId);
+	
+	/**
+	 * 增加文章阅读量
+	 * 
+	 * @param newsId
+	 */
+	public abstract void readerPlus(String newsId);
 
 }

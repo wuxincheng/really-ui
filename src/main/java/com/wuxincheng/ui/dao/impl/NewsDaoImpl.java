@@ -80,4 +80,9 @@ public class NewsDaoImpl extends BaseDao implements NewsDao {
 		return (Integer)this.getSqlMapClientTemplate().queryForObject("News.queryCountByParams", queryParam);
 	}
 
+	@Override
+	public void readerPlus(String newsId) {
+		this.getSqlMapClientTemplate().update("News.readerPlus", newsId);
+	}
+
 }

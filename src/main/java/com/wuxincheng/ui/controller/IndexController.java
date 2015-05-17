@@ -194,6 +194,9 @@ private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 			model.addAttribute("msg", "文章不存在");
 		}
 		
+		// 访问量+1
+		newsService.readerPlus(id);
+		
 		model.addAttribute("news", news);
 		
 		return "article_detail";

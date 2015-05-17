@@ -111,4 +111,11 @@ public interface NewsDao {
 	 */
 	public abstract List<News> queryExpireNews();
 
+	/**
+	 * 增加文章阅读量
+	 * 
+	 * @param newsId
+	 */	
+	public abstract void readerPlus(String newsId);
+
 }

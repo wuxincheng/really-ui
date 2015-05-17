@@ -111,5 +111,10 @@ public class NewsServiceImpl implements NewsService {
 		// 删除对应的评论
 		commentDao.delete(news.getCommentId());
 	}
+
+	@Override
+	public void readerPlus(String newsId) {
+		newsDao.readerPlus(newsId);
+	}
 	
 }

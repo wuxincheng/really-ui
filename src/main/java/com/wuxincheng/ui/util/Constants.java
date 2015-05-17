@@ -18,6 +18,6 @@ public class Constants {
 	public static final String MSG_TYPE_DANGER = "danger";
 	
 	/** 信息类型: 错误信息 */
-	public static final String WEB_NAME = "咖啡网站: ";
+	public static final String WEB_NAME = "咖啡日报网站: ";
 	
 }

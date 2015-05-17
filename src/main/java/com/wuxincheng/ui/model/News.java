@@ -29,6 +29,8 @@ public class News implements Serializable {
 	private Double truthDegree = 0D;
 
 	private long opinionTimes = 0L;
+	
+	private Integer readerCount;
 
 	/** 微信公众号名称 */
 	private String weChatPublicName;
@@ -196,6 +198,14 @@ public class News implements Serializable {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public Integer getReaderCount() {
+		return readerCount;
+	}
+
+	public void setReaderCount(Integer readerCount) {
+		this.readerCount = readerCount;
 	}
 
 }

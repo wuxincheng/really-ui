@@ -127,5 +127,9 @@
   <delete id="delete" parameterClass="java.lang.Long">
     UPDATE T_REALLY_NEWS n SET n.STATE = '2' WHERE n.PK = #id#
   </delete>
+  
+  <update id="readerPlus" parameterClass="java.lang.String">
+    UPDATE T_REALLY_NEWS SET READER_COUNT = READER_COUNT+1 WHERE PK = #id# 
+  </update>
 	
 </sqlMap>
