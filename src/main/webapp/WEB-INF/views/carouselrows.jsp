@@ -66,7 +66,14 @@
           <div id="carousel-1" class="carousel slide slide-carousel" data-ride="carousel">
             <div class="carousel-inner">
               <div class="item active">
-                <a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank"><img src="${obj.imgLink}"></a>
+                <a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank">
+                  <c:if test="${'logo' ne obj.imgLocPath}">
+                    <img src="http://www.kaffeedaily.com/really-manage/imgbase/res/${obj.settleDate}/K-${obj.id}.jpeg">
+                  </c:if>
+                  <c:if test="${'logo' eq obj.imgLocPath}">
+                    <img src="<%=request.getContextPath()%>/assets/images/coffee-logo-fetch.jpg">
+                  </c:if>
+                </a>
               </div>
             </div>
           </div>
@@ -143,7 +150,15 @@ function loadMore () {
 		var objs = data.news;
 		$.each(objs, function(i, obj){
 			var detail_url = "<%=request.getContextPath()%>/index/detail?id=" + obj.id;
-			var show = html.replace("imgLink", obj.imgLink)
+			
+			var imgLink;
+			if ("logo" == obj.imgLocPath || null == obj.imgLocPath || '' == obj.imgLocPath) {
+				imgLink = "http://www.kaffeedaily.com/assets/images/coffee-logo-fetch.jpg";
+			} else {
+  				imgLink = "http://www.kaffeedaily.com/really-manage/imgbase/res/"+obj.settleDate+"/K-"+obj.id+".jpeg";
+			}
+			
+			var show = html.replace("imgLink", imgLink)
 						   .replace("title", obj.title)
 						   //.replace("subTitle", obj.subTitle)
 						   .replace("url", detail_url)

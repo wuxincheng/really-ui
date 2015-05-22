@@ -15,12 +15,18 @@ public class News implements Serializable {
 	private String domain;
 
 	private String imgLink;
+	
+	/** 图片存在本地处理后的位置 */
+	private String imgLocPath;
 
 	private String title;
 
 	private String subTitle;
 
 	private String content;
+	
+	/** 文章存入日期 */
+	private String settleDate;
 
 	private String createTime;
 
@@ -206,6 +212,22 @@ public class News implements Serializable {
 
 	public void setReaderCount(Integer readerCount) {
 		this.readerCount = readerCount;
+	}
+
+	public String getImgLocPath() {
+		return imgLocPath;
+	}
+
+	public void setImgLocPath(String imgLocPath) {
+		this.imgLocPath = imgLocPath;
+	}
+
+	public String getSettleDate() {
+		return settleDate;
+	}
+
+	public void setSettleDate(String settleDate) {
+		this.settleDate = settleDate;
 	}
 
 }

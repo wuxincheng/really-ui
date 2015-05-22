@@ -18,6 +18,8 @@
   	<result property="weChatPublicName" column="PUBLIC_NAME" />
   	<result property="weChatPublicNO" column="PUBLIC_NO" />
   	<result property="state" column="STATE" />
+    <result property="settleDate" column="SETTLE_DATE" />
+    <result property="imgLocPath" column="IMG_LOC_PATH" />
   </resultMap>
   
   <resultMap class="News" id="NewsSimpleListMapping">
@@ -68,8 +70,8 @@
     SELECT 
     	n.PK, replace(n.DOMAIN, '微信.', '') AS DOMAIN, n.IMG_LINK, n.TRUTH_DEGREE, 
     	c.PK AS COMMENT_ID, n.TITLE, LEFT(n.SUB_TITLE, 55) AS SUB_TITLE,
-        n.URL, n.TRUTH_DEGREE, n.OPINION_TIMES, 
-    	DATE_FORMAT(n.CREATE_TIME,'%m月%d日') AS CREATE_TIME, 
+        n.URL, n.TRUTH_DEGREE, n.OPINION_TIMES, n.IMG_LOC_PATH,
+    	DATE_FORMAT(n.CREATE_TIME,'%m月%d日') AS CREATE_TIME, n.SETTLE_DATE,
     	n.OPINION_TIMES, n.STATE, u.USERNAME, p.PUBLIC_NAME, p.PUBLIC_NO
     FROM T_REALLY_NEWS n 
     	LEFT JOIN T_REALLY_USER u ON n.CREATOR_ID = u.PK
