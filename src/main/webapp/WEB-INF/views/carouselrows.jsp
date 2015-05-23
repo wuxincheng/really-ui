@@ -70,7 +70,7 @@
                   <c:if test="${'logo' ne obj.imgLocPath}">
                     <img src="http://www.kaffeedaily.com/really-manage/imgbase/res/${obj.settleDate}/K-${obj.id}.jpeg">
                   </c:if>
-                  <c:if test="${'logo' eq obj.imgLocPath}">
+                  <c:if test="${'logo' eq obj.imgLocPath || null eq obj.imgLocPath || '' eq obj.imgLocPath}">
                     <img src="<%=request.getContextPath()%>/assets/images/coffee-logo-fetch.jpg">
                   </c:if>
                 </a>
