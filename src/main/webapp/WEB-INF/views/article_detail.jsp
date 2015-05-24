@@ -56,7 +56,6 @@ a {
       <div class="pull-left">
         <a href="<%=request.getContextPath()%>/index/">
           <img src="<%=request.getContextPath()%>/assets/images/top-show.jpg" style="width: 162px; height: 50px;" />
-          &nbsp;&nbsp;返回到首页
         </a>
       </div>
       <!-- pull-left end -->
@@ -67,6 +66,15 @@ a {
           <a href="#order-box">
             <button class="btn btn-warning btn-block" type="button">
             &nbsp;&nbsp;&nbsp;关&nbsp;注&nbsp;&nbsp;&nbsp;</button>
+          </a>
+        </div>
+      </div>
+      
+      <div class="pull-right">
+        <div style="margin-top: 7px; margin-right: 10px;">
+          <a href="<%=request.getContextPath()%>/index/">
+            <button class="btn btn-warning btn-block" type="button">
+            &nbsp;&nbsp;&nbsp;首&nbsp;页&nbsp;&nbsp;&nbsp;</button>
           </a>
         </div>
       </div>
