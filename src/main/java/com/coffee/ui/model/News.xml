@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="News">
+  <typeAlias alias="News" type="com.coffee.ui.model.News" />
+  
+  <resultMap class="News" id="NewsListMapping">
+  	<result property="id" column="PK" />
+    <result property="commentId" column="COMMENT_ID" />
+    <result property="url" column="URL" />
+  	<result property="domain" column="DOMAIN" />
+  	<result property="imgLink" column="IMG_LINK" />
+  	<result property="title" column="TITLE" />
+  	<result property="subTitle" column="SUB_TITLE" />
+  	<result property="createTime" column="CREATE_TIME" />
+  	<result property="creator" column="USERNAME" />
+  	<result property="truthDegree" column="TRUTH_DEGREE" />
+    <result property="opinionTimes" column="OPINION_TIMES" />
+  	<result property="weChatPublicName" column="PUBLIC_NAME" />
+  	<result property="weChatPublicNO" column="PUBLIC_NO" />
+  	<result property="state" column="STATE" />
+    <result property="settleDate" column="SETTLE_DATE" />
+    <result property="imgLocPath" column="IMG_LOC_PATH" />
+  </resultMap>
+  
+  <resultMap class="News" id="NewsSimpleListMapping">
+    <result property="id" column="PK" />
+    <result property="title" column="TITLE" />
+    <result property="state" column="STATE" />
+    <result property="comment" column="COMMENT" />
+  </resultMap>
+  
+  <resultMap class="News" id="NewsMapping">
+    <result property="id" column="PK" />
+    <result property="commentId" column="COMMENT_ID" />
+    <result property="url" column="URL" />
+    <result property="domain" column="DOMAIN" />
+    <result property="imgLink" column="IMG_LINK" />
+    <result property="title" column="TITLE" />
+    <result property="subTitle" column="SUB_TITLE" />
+    <result property="content" column="CONTENT" />
+    <result property="comment" column="COMMENT" />
+    <result property="createTime" column="CREATE_TIME" />
+    <result property="truthDegree" column="TRUTH_DEGREE" />
+    <result property="opinionTimes" column="OPINION_TIMES" />
+    <result property="state" column="STATE" />
+  </resultMap>
+  
+  <select id="queryDaily" parameterClass="java.lang.String" resultMap="NewsListMapping">
+    SELECT 
+      n.PK, replace(n.DOMAIN, '微信.', '') AS DOMAIN, n.IMG_LINK, n.TRUTH_DEGREE, 
+      c.PK AS COMMENT_ID, n.TITLE, LEFT(n.SUB_TITLE, 55) AS SUB_TITLE,
+      n.URL, n.TRUTH_DEGREE, n.OPINION_TIMES, n.IMG_LOC_PATH,
+      DATE_FORMAT(n.CREATE_TIME,'%m月%d日') AS CREATE_TIME, n.SETTLE_DATE,
+      n.OPINION_TIMES, n.STATE, u.USERNAME, p.PUBLIC_NAME, p.PUBLIC_NO
+    FROM T_REALLY_NEWS n 
+      LEFT JOIN T_REALLY_USER u ON n.CREATOR_ID = u.PK
+      LEFT JOIN T_MANAGE_WECHAT_PUBLIC p ON n.SOGOU_OPENID = p.OPEN_ID
+      LEFT JOIN T_REALLY_COMMENT c ON n.PK = c.NEWS_ID
+    WHERE n.STATE = '0' AND DATE_FORMAT(n.CREATE_TIME,'%Y%m%d') = #dailyDate#
+    ORDER BY n.CREATE_TIME DESC
+  </select>
+  
+  <select id="queryDailyDate" resultClass="java.lang.String">
+    SELECT DATE_FORMAT(CREATE_TIME,'%Y%m%d') AS CREATE_TIME FROM T_REALLY_NEWS
+    WHERE STATE = '0' GROUP BY DATE_FORMAT(CREATE_TIME,'%Y%m%d') ORDER BY CREATE_TIME DESC
+  </select>
+  
+  <select id="queryNewsById" parameterClass="java.lang.String" resultMap="NewsMapping">
+    SELECT 
+      n.PK, n.URL, replace(n.DOMAIN, '微信.', '') AS DOMAIN, n.IMG_LINK, n.TITLE, n.SUB_TITLE, 
+      n.CONTENT, n.STATE, DATE_FORMAT(n.CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME,
+      n.TRUTH_DEGREE, n.OPINION_TIMES, c.CONTENT AS COMMENT, c.PK AS COMMENT_ID
+    FROM T_REALLY_NEWS n 
+      LEFT JOIN T_REALLY_COMMENT c ON n.PK = c.NEWS_ID
+    WHERE n.PK = #id#
+  </select>
+  
+  <select id="queryPager" parameterClass="java.util.Map" resultMap="NewsListMapping">
+    SELECT 
+    	n.PK, replace(n.DOMAIN, '微信.', '') AS DOMAIN, n.IMG_LINK, n.TRUTH_DEGREE, 
+    	c.PK AS COMMENT_ID, n.TITLE, LEFT(n.SUB_TITLE, 55) AS SUB_TITLE,
+        n.URL, n.TRUTH_DEGREE, n.OPINION_TIMES, n.IMG_LOC_PATH,
+    	DATE_FORMAT(n.CREATE_TIME,'%m月%d日') AS CREATE_TIME, n.SETTLE_DATE,
+    	n.OPINION_TIMES, n.STATE, u.USERNAME, p.PUBLIC_NAME, p.PUBLIC_NO
+    FROM T_REALLY_NEWS n 
+    	LEFT JOIN T_REALLY_USER u ON n.CREATOR_ID = u.PK
+    	LEFT JOIN T_MANAGE_WECHAT_PUBLIC p ON n.SOGOU_OPENID = p.OPEN_ID
+    	LEFT JOIN T_REALLY_COMMENT c ON n.PK = c.NEWS_ID
+    <dynamic prepend="WHERE">
+      <isNotNull prepend="AND" property="start">
+        n.STATE = '0'
+      </isNotNull>
+      <isNotNull prepend="AND" property="queryStartDate">
+        DATE_FORMAT(n.CREATE_TIME,'%Y%m%d') BETWEEN #queryStartDate# AND #queryEndDate#
+      </isNotNull>
+    </dynamic>
+    ORDER BY n.STATE DESC, n.CREATE_TIME DESC LIMIT #start#, #end#
+  </select>
+  
+  <select id="queryCountByParams" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+    SELECT COUNT(*) AS queryCount FROM T_REALLY_NEWS n
+    <dynamic prepend="WHERE">
+      <isNotNull prepend="AND" property="start">
+        n.STATE = '1'
+      </isNotNull>
+      <isNotNull prepend="AND" property="queryStartDate">
+        DATE_FORMAT(n.CREATE_TIME,'%Y%m%d') BETWEEN #queryStartDate# AND #queryEndDate#
+      </isNotNull>
+    </dynamic>
+  </select>
+  
+  <select id="queryCount" resultClass="java.lang.Integer">
+    SELECT COUNT(*) AS queryCount FROM T_REALLY_NEWS WHERE STATE = '0' OR STATE = '1' OR STATE IS NULL
+  </select>
+  
+  <select id="queryNewsIdByDocid" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+    SELECT PK FROM T_REALLY_NEWS WHERE SOGOU_DOCID = #sogouDocid#
+  </select>
+  
+  <update id="readerPlus" parameterClass="java.lang.String">
+    UPDATE T_REALLY_NEWS SET READER_COUNT = READER_COUNT+1 WHERE PK = #id# 
+  </update>
+	
+</sqlMap>

@@ -5,14 +5,7 @@
 
   <settings useStatementNamespaces="true" />
   
-  <sqlMap resource="com/wuxincheng/ui/model/News.xml" />
-  <sqlMap resource="com/wuxincheng/ui/model/Comment.xml" />
-  
-  <!-- 
-  <sqlMap resource="com/wuxincheng/ui/model/Message.xml" />
-  <sqlMap resource="com/wuxincheng/ui/model/Admins.xml" />
-  <sqlMap resource="com/wuxincheng/ui/model/WeChat.xml" />
-  <sqlMap resource="com/wuxincheng/ui/model/User.xml" />
-   -->
+  <sqlMap resource="com/coffee/ui/model/News.xml" />
+  <sqlMap resource="com/coffee/ui/model/Comment.xml" />
 
 </sqlMapConfig>
