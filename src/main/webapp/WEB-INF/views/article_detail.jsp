@@ -54,7 +54,7 @@ a {
     <div class="container" style="padding: 5px 20px; border-bottom: 0px solid #CAC3C3;">
       <!-- pull-left start -->
       <div class="pull-left">
-        <a href="<%=request.getContextPath()%>/index/">
+        <a href="<%=request.getContextPath()%>/daily/show">
           <img src="<%=request.getContextPath()%>/assets/images/top-show.jpg" style="width: 162px; height: 50px;" />
         </a>
       </div>
@@ -72,7 +72,7 @@ a {
       
       <div class="pull-right">
         <div style="margin-top: 7px; margin-right: 10px;">
-          <a href="<%=request.getContextPath()%>/index/">
+          <a href="<%=request.getContextPath()%>/daily/show">
             <button class="btn btn-warning btn-block" type="button">
             &nbsp;&nbsp;&nbsp;首&nbsp;页&nbsp;&nbsp;&nbsp;</button>
           </a>

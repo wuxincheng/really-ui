@@ -78,17 +78,17 @@
           <c:set var="lastCreateTimeTmp" value="${obj.createTime}" />
         </c:forEach>
         <div class="really-container">
-          <div class="pull-left">
+          <div class="pull-left" style="width: 49%;">
             <c:if test="${not empty showBefore}">
               <a href="<%=request.getContextPath()%>/daily/show?dailyDate=${dailyBefore}" target="_blank">
-                <button class="btn btn-block btn-lg btn-warning" type="button">&nbsp;&nbsp;${showBefore}&nbsp;&nbsp;</button>
+                <button class="btn btn-block btn-warning" type="button">${showBefore}</button>
               </a>
             </c:if>
           </div>
-          <div class="pull-right">
+          <div class="pull-right" style="width: 49%;">
             <c:if test="${not empty showAfter}">
               <a href="<%=request.getContextPath()%>/daily/show?dailyDate=${dailyAfter}" target="_blank">
-                <button class="btn btn-block btn-lg btn-warning" type="button">&nbsp;&nbsp;${showAfter}&nbsp;&nbsp;</button>
+                <button class="btn btn-block btn-warning" type="button">${showAfter}</button>
               </a>
             </c:if>
           </div>
@@ -100,6 +100,24 @@
         </div>
       </c:otherwise>
     </c:choose>
+  </div>
+  
+  <hr>
+  
+  <div class="container" style="padding-top: 10px; border-top: 0px solid #F8F3F3;">
+    <div class="order-panel">
+      <span style="font-size: 16px;"><strong>订阅咖啡日报的方法：</strong></span><br>
+      <span style="font-size: 14px;">
+      1、按住二维码3秒钟，选择识别二维码，关注公众号；<br/>
+      2、直接在公众号搜索：咖啡日报（kafeiribao）;<br>
+      3、直接访问&nbsp;www.kaffeedaily.com</span>
+    </div>
+    
+    <div id="order-box" name="order-box" style="width: 100%; text-align: center; margin: 0px 0px 15px 0px;">
+      <a href="weixin://contacts/profile/kafeiribao">
+        <img src="<%=request.getContextPath()%>/assets/images/qrcode/cafei_258.jpg" style="max-width: 100%; height: auto;" />
+      </a>
+    </div>
   </div>
   
   <input type="hidden" id="nowCurrentPage" name="nowCurrentPage" value="2" />

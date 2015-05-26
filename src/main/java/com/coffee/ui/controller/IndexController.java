@@ -29,7 +29,7 @@ import com.coffee.ui.util.Validation;
 @RequestMapping("/index")
 public class IndexController {
 
-private static Logger logger = LoggerFactory.getLogger(IndexController.class);
+	private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
 	/** 每页显示条数 */
 	private final Integer pageSize = 10;
