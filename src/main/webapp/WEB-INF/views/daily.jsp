@@ -51,14 +51,16 @@
                 <div class="carousel-inner">
                   <div class="item active">
                     <a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank">
+                      <img src="http://www.kaffeedaily.com/really-manage/imgbase/${obj.imgLocPath}">
+                      <!-- 
                       <c:choose>
                         <c:when test="${'logo' eq obj.imgLocPath || '' == obj.imgLocPath || null == obj.imgLocPath}">
                           <img src="<%=request.getContextPath()%>/assets/images/coffee-logo-fetch.jpg">
                         </c:when>
                         <c:otherwise>
-                          <img src="http://www.kaffeedaily.com/really-manage/imgbase/res/${obj.settleDate}/K-${obj.id}.jpeg">
                         </c:otherwise>
                       </c:choose>
+                       -->
                     </a>
                   </div>
                 </div>

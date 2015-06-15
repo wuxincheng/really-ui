@@ -138,5 +138,9 @@ $("#main").load(function(){
     var browerHeight = $(window).height();
     $(this).height(browerHeight);
 });
+
+var iframe= $('#main')[0];
+var iframewindow= iframe.contentWindow? iframe.contentWindow : iframe.contentDocument.defaultView;
+$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>');
 </script>
 </html>
