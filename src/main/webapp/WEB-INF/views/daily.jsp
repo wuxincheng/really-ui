@@ -51,7 +51,7 @@
                 <div class="carousel-inner">
                   <div class="item active">
                     <a href="<%=request.getContextPath()%>/index/detail?id=${obj.id}" target="_blank">
-                      <img src="http://www.kaffeedaily.com/really-manage/imgbase/${obj.imgLocPath}">
+                      <img src="http://www.zhuanlemei.com/really-manage/imgbase/${obj.imgLocPath}">
                       <!-- 
                       <c:choose>
                         <c:when test="${'logo' eq obj.imgLocPath || '' == obj.imgLocPath || null == obj.imgLocPath}">
